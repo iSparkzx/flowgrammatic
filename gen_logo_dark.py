@@ -1,10 +1,14 @@
 import json
 import sys
+import os
 import base64
 import urllib.request
 import urllib.error
 
-API_KEY = "REDACTED_API_KEY"
+API_KEY = os.environ.get("GOOGLE_API_KEY")
+if not API_KEY:
+    print("Error: GOOGLE_API_KEY environment variable not set")
+    sys.exit(1)
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={API_KEY}"
 
 prompt = """Create a sleek, premium logo on a SOLID BLACK background (#000000) for "Flowgrammatic" — an AI automation agency.
