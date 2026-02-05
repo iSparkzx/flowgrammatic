@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1200px;
+  height: 630px;
+  background: #020206;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.blob1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: #0066ff;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  top: -200px;
+  left: -150px;
+}
+.blob2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: #7b2fff;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.2;
+  bottom: -200px;
+  right: -100px;
+}
+.content {
+  position: relative;
+  z-index: 1;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(0,102,255,0.1);
+  border: 1px solid rgba(0,102,255,0.2);
+  border-radius: 30px;
+  font-size: 14px;
+  color: #00d4ff;
+  margin-bottom: 32px;
+}
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #00f5d4;
+  border-radius: 50%;
+}
+h1 {
+  font-size: 72px;
+  font-weight: 800;
+  color: #f0eee9;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+h1 span {
+  background: linear-gradient(135deg, #00d4ff, #0066ff, #7b2fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+p {
+  font-size: 24px;
+  color: #b8b5c4;
+  font-weight: 300;
+  max-width: 700px;
+  line-height: 1.5;
+}
+.logo {
+  position: absolute;
+  bottom: 60px;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #0066ff, #00f5d4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 24px;
+  color: #020206;
+}
+.logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: #f0eee9;
+}
+</style>
+</head>
+<body>
+<div class="blob1"></div>
+<div class="blob2"></div>
+<div class="content">
+  <div class="badge">
+    <span class="badge-dot"></span>
+    AI Automation Agency
+  </div>
+  <h1>We build the <span>AI systems</span><br>that run your business.</h1>
+  <p>Custom automation, intelligent chatbots, and workflows that scale — while you sleep.</p>
+</div>
+<div class="logo">
+  <div class="logo-mark">F</div>
+  <div class="logo-text">Flowgrammatic</div>
+</div>
+</body>
+</html>
