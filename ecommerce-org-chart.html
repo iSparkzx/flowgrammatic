@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecommerce & Digital Marketing Org Chart</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #e2e8f0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Org Chart Styles */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Director Level */
+.director-level {
+  display: flex;
+  justify-content: center;
+}
+
+.director-card {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 16px;
+  padding: 24px 40px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+  position: relative;
+}
+
+.director-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(180deg, #8b5cf6, #475569);
+}
+
+.director-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.director-card .title {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Connector Line */
+.connector {
+  width: 80%;
+  height: 2px;
+  background: #475569;
+  position: relative;
+}
+
+.connector::before,
+.connector::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 40px;
+  background: #475569;
+}
+
+.connector::before { left: 0; }
+.connector::after { right: 0; }
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.team-grid::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: #475569;
+}
+
+.role-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.role-card:hover {
+  border-color: #60a5fa;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.role-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: #475569;
+}
+
+.role-card.internal { border-top: 3px solid #10b981; }
+.role-card.external { border-top: 3px solid #f59e0b; }
+.role-card.new-hire { border-top: 3px solid #8b5cf6; }
+
+.role-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  font-size: 20px;
+}
+
+.role-card.internal .role-icon { background: rgba(16, 185, 129, 0.2); }
+.role-card.external .role-icon { background: rgba(245, 158, 11, 0.2); }
+.role-card.new-hire .role-icon { background: rgba(139, 92, 246, 0.2); }
+
+.role-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #f1f5f9;
+}
+
+.role-card .salary {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.role-card .tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.role-card.internal .tag {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.role-card.external .tag {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.role-card.new-hire .tag {
+  background: rgba(139, 92, 246, 0.2);
+  color: #a78bfa;
+}
+
+.role-card .name {
+  font-size: 11px;
+  color: #60a5fa;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #334155;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.legend-dot.internal { background: #10b981; }
+.legend-dot.external { background: #f59e0b; }
+.legend-dot.new-hire { background: #8b5cf6; }
+
+/* Budget Summary */
+.budget-summary {
+  margin-top: 40px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.budget-item h4 {
+  font-size: 12px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.budget-item .value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+.budget-item .sub {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .budget-summary {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="header">
+    <h1>Ecommerce & Digital Marketing</h1>
+    <p>Department Structure & Headcount</p>
+  </header>
+
+  <div class="org-chart">
+    <!-- Director Level -->
+    <div class="director-level">
+      <div class="director-card">
+        <h2>Carlos Mitchell</h2>
+        <div class="title">Director of Ecommerce & Digital Marketing</div>
+      </div>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="team-grid">
+      <div class="role-card internal">
+        <div class="role-icon">📢</div>
+        <h3>Paid Media Specialist</h3>
+        <div class="salary">$70K – $80K</div>
+        <span class="tag">To Hire</span>
+      </div>
+
+      <div class="role-card external">
+        <div class="role-icon">🎨</div>
+        <h3>Paid Media Assets</h3>
+        <div class="salary">$700 – $1,000/mo</div>
+        <span class="tag">Contractor</span>
+      </div>
+
+      <div class="role-card external">
+        <div class="role-icon">📧</div>
+        <h3>Email Marketing</h3>
+        <div class="salary">Agency Managed</div>
+        <span class="tag">IntelliBright / Clandestine</span>
+      </div>
+
+      <div class="role-card internal">
+        <div class="role-icon">💻</div>
+        <h3>Ecommerce Developer</h3>
+        <div class="salary">$80K – $100K</div>
+        <span class="tag">To Hire</span>
+      </div>
+
+      <div class="role-card internal">
+        <div class="role-icon">🔍</div>
+        <h3>SEO / GEO Specialist</h3>
+        <div class="salary">$75K – $90K</div>
+        <span class="tag">To Hire</span>
+      </div>
+
+      <div class="role-card new-hire">
+        <div class="role-icon">🛒</div>
+        <h3>Marketplace Specialist</h3>
+        <div class="salary">TBD</div>
+        <span class="tag">New Hire</span>
+        <div class="name">Mark</div>
+      </div>
+
+      <div class="role-card internal">
+        <div class="role-icon">📊</div>
+        <h3>CRO Specialist</h3>
+        <div class="salary">$60K – $80K</div>
+        <span class="tag">To Hire</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot internal"></div>
+      <span>Internal Hire</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot external"></div>
+      <span>External / Agency</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot new-hire"></div>
+      <span>Recently Hired</span>
+    </div>
+  </div>
+
+  <!-- Budget Summary -->
+  <div class="budget-summary">
+    <div class="budget-item">
+      <h4>Internal Headcount</h4>
+      <div class="value">5</div>
+      <div class="sub">Full-time roles (incl. Director)</div>
+    </div>
+    <div class="budget-item">
+      <h4>Est. Annual Payroll</h4>
+      <div class="value">$365K – $450K</div>
+      <div class="sub">Internal hires only</div>
+    </div>
+    <div class="budget-item">
+      <h4>External Spend</h4>
+      <div class="value">$8.4K – $12K/yr</div>
+      <div class="sub">Graphic design contractor</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
